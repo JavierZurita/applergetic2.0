@@ -5,20 +5,36 @@
  
     .letra{
         color: black; 
-        font-size: 25px;
+        font-size: 20px;
     }
   
     .logo{
         width: 45vw;
         height: 45vw;
     }
-  
     
-    .close_button{
+  .close_button{
         display: flex;
         width: 8vw;
         height: 8vw;
-   
-
 }
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #37BFD2; 
+    font-weight: bold; 
+}
+
+.volver_login{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 30px;
+margin-right: 300px;
+margin-bottom: 30px;   
+}
+
+
 }

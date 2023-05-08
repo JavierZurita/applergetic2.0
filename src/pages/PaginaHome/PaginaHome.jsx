@@ -20,7 +20,7 @@ export default function PaginaHome() {
         <p>Mi guía alimentaria</p>
       </div>
         <button className="button_escaner"><Link to="/PaginaEscaneo">
-          <AiOutlineBarcode  color="white"/> Escanear  </Link>
+          <AiOutlineBarcode /> Escanear  </Link>
         </button>
       <div className="texto">
         <p>Escanea un nuevo producto.</p>
