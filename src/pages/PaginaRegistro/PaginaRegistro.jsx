@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "./PaginaRegistro.scss";
 import axios from 'axios';
+import { useContext } from "react";
+import { RegistroContext } from "../../shared/context/Registro.context";
 
 function Registro() {
   const { register, handleSubmit, formState: { errors } } = useForm();    
   const navigate = useNavigate();
+  const registroContext = useContext(RegistroContext);
 
     const onSubmit = formData => {
         console.log(formData);
@@ -15,6 +18,7 @@ function Registro() {
       if (Object.keys(errors).length === 0) {
         axios.post('http://localhost:5000/user/register', formData).then(res => {
             console.log("registrao");
+            registroContext.email = formData.email;
             navigate('/PaginaContacto');
         })
         .catch(error => {
