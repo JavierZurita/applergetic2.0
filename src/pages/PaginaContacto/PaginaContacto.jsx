@@ -1,10 +1,11 @@
-import { useState } from 'react';
+
 import "./PaginaContacto.scss";
 import { useForm } from 'react-hook-form';
 import { RegistroContext } from '../../shared/context/Registro.context';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AiOutlineLeft } from 'react-icons/ai';
 
 export default function PaginaContacto() {
   const registroContext = useContext(RegistroContext);
@@ -28,8 +29,9 @@ export default function PaginaContacto() {
     })
   };
   return (
+    <div className='PaginaContacto'>
     <div>
-        <button className="Vol" onClick={() => {navigate('/PaginaRegistro')}}>  &gt; Volver </button>
+        <button className="Vol" onClick={() => {navigate('/PaginaRegistro')}}> <AiOutlineLeft/> Volver </button>
         <p>2 de 4</p>
         <div className='Htext'>
             <h1 className='Title'>Vamos a añadir tu contacto en caso de emergencia.</h1>
@@ -51,6 +53,7 @@ export default function PaginaContacto() {
         <button className={`Save`} type="submit" >Guardar emergencias</button>
       </form>
         <button className="Skipe" > Registrare mi contacto en otro momento </button>
+    </div>
     </div>
   );
 }

@@ -6,9 +6,15 @@ export default function PaginaFinRegistro() {
 
 
     return(<div className='PaginaFinRegistro'>
-        <div className='volver_alergia'>
-        <Link to="/PaginaLogin"> <AiOutlineArrowLeft/> Volver </Link>   <p> 4 de 4 </p>
-        </div>
+      <div class='volver_alergia'>
+  <div>
+    <Link to="/PaginaLogin"><AiOutlineArrowLeft /> Volver</Link>
+  </div>
+  <p>4 de 4</p>
+  <div >
+    <Link to="/PaginaHome">X</Link>
+  </div>
+</div>
         <div>
         <img class="mano" src="./img/gallery/mano.png" alt="APPlergetic" />
         </div>

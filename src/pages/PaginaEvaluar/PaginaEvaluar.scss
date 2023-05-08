@@ -6,18 +6,22 @@
     .letra{
         color: black; 
         font-size: 20px;
+        margin-bottom: 1vh;
     }
   
     .logo{
         width: 45vw;
         height: 45vw;
+        margin-bottom: 7vh;
+    }
+    .estrellas{
+        margin-bottom: 20vh;
     }
     
-  .close_button{
-        display: flex;
-        width: 8vw;
-        height: 8vw;
-}
+    .puntuacion{
+        margin-top: 7vh;
+    }
+
 a{
     display: flex;
     justify-content: center;
@@ -30,10 +34,10 @@ a{
 
 .volver_login{
     display: flex;
-    align-items: flex-end;
-    margin-top: 30px;
-margin-right: 300px;
-margin-bottom: 30px;   
+    margin-bottom: 15vh;
+    align-self: flex-start;
+    width: 100%;
+    margin-left: 5px; 
 }
 
 

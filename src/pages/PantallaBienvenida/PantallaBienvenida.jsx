@@ -51,8 +51,10 @@ export default function PantallaBienvenida() {
         <p className="sub">{slides[currentSlide].text} </p>
       </div>
       <SlideDots />
+      <div className='buttons'>
       <button className="Skip" onClick={previousSlide}>Saltar</button>
       <button className="Next" onClick={nextSlide}>Siguiente<AiOutlineRight/></button>
+      </div>
     </div>
   );
 }

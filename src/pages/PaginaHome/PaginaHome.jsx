@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ModalMenu from "../../components/ModalMenu/ModalMenu";
 import Navbar from "../../components/Navbar/Navbar";
 
+
 export default function PaginaHome() {
   return (
     <div className="Pagina_home">

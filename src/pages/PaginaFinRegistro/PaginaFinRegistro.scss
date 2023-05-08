@@ -2,18 +2,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-.volver_alergia{
- display: flex;
-align-items: flex-end;
-margin-top: 30px;
-margin-right: 250px;
-margin-bottom: 30px;   
-}
+    p{
+        color: black;
+        font-size: small;
+     }
+     .volver_alergia {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15vh;
+        align-self: flex-start;
+        width: 90%;
+        margin-left: 14px;
+       
+      }
+   
 .volver_alergia a{
     color: #37BFD2; 
     font-weight: bold; 
+    font-size: medium;
+  
 }
+
 
 a{
     display: flex;
@@ -27,8 +37,7 @@ a{
 .button_producto{
     width: 85%;
     padding: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 150px;
     border-radius: 5px;
     border: none;
     background-color: #26C7DC;
@@ -40,6 +49,7 @@ a{
 }
 
 .text_registro{
+    margin-top: 60px;
     color: black;
 }
 }
