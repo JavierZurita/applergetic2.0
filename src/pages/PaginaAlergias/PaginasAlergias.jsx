@@ -42,7 +42,7 @@ export default function PaginaAlergias() {
             });
             setAlergiasPorLetra(Object.keys(groupedAlergias).filter(key => /^[A-Z]$/.test(key)));
             setAlergias(groupedAlergias);
-            console.log(groupedAlergias);
+            // console.log(groupedAlergias);
         })
         .catch(error => console.log(error));
     }, []);
@@ -50,7 +50,7 @@ export default function PaginaAlergias() {
 
 
     const handleAlergiaClick = (valor, inicial) => {
-        console.log(valor);
+        // console.log(valor);
         if (seleccionados.includes(valor)) {
             setSeleccionados(seleccionados.filter(sel => sel !== valor));
         } else {
@@ -66,7 +66,7 @@ export default function PaginaAlergias() {
         }
 
         setLetrasSeleccionadas(inicialesSeleccionadas);
-        console.log(seleccionados);
+        // console.log(seleccionados);
         setContextData({...contextData, alergiasRegistro: seleccionados});
     }
 
@@ -74,7 +74,7 @@ export default function PaginaAlergias() {
         setInfoVisible((prevState) => ({...prevState, [key]: !prevState[key]}));
         setFlechaSelected(!flechaSelected);
     };      
-
+    
     return(
         <div className="pagina-alergias">
             <HeaderRegister />
@@ -106,7 +106,7 @@ export default function PaginaAlergias() {
                     </div>
                 ))}
             </div>
-           <button className="guardar"><Link to="/PaginaConfirmarAlergias"> Guardar </Link></button>
+           <button className="guardar" onClick={() => handleAlergiaClick("")}><Link to="/PaginaConfirmarAlergias"> Guardar </Link></button>
         </div>
     )
 }

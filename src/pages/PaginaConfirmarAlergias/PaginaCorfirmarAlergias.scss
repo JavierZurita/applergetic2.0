@@ -4,6 +4,24 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    .listado{
+        color: gray;
+        width: 90%;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        .selected{
+            background-color: #F84971;
+            color: white;
+        }
+    }
+    .opcion{
+        font-weight: 500;
+        border: 1px solid gray;
+        border-radius: 20vw;
+        padding: 10px 20px;
+        min-width: 70px;
+    }
     .confirmar{
         width: 85%;
         height: 50px;
