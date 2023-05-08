@@ -43,6 +43,7 @@
   "devDependencies": {
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
+    "mongoose": "^7.1.0",
     "react-hook-form": "^7.43.9",
     "react-router-dom": "^6.11.1",
     "sass": "^1.62.1"
