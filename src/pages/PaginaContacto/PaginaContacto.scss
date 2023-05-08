@@ -1,0 +1,54 @@
+*{
+    font-size: 2vh;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+.Vol{
+    border: none;
+    background-color: white;
+    margin: 2vh;
+    color: #1AC3E4;
+    position: absolute;
+    left: 2vh;
+}
+.Title{
+    font-size: 3vh;
+    padding: 0vh 10vh;
+    margin-top: 1vh;
+}
+.Sub{
+    color: grey;
+    margin: 1vh 8vh;
+
+}
+.Fromu{
+    margin: 3vh 5vh;
+}
+.bimput{
+    padding-bottom: 3vh;
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: grey;
+    margin: 2vh;
+    width: 40vh;
+}
+.Save{
+    border: none;
+    background-color: #1AC3E4;
+    margin: 2vh 2vh 0vh;
+    color: white;
+    width: 40vh;
+    height: 6vh;
+    border-radius: 10px;
+}
+.Skipe{
+    color: #1AC3E4;
+    margin-bottom: 2vh;
+    background-color: white;
+    border: none;
+}
+.Save.disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}

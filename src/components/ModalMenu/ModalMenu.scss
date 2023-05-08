@@ -1,0 +1,62 @@
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.882);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 30px; 
+    width: 200px; 
+    height: 300px; 
+    background-color: white;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    z-index: 1; 
+
+
+
+
+.burger svg{
+    color: #37BFD2;  
+}
+ 
+  .deplegable {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .deplegable li {
+    margin-bottom: 10px;
+  }
+  
+  .deplegable li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+  }
+  
+  .deplegable li a svg {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  .cerrar{
+    border: none;
+    background-color: transparent;
+    margin-left: 160px;
+   
+  }
+}
+  
+  .burger{
+    display: flex;
+    margin-top: 30px;
+    margin-right: 300px;
+    color: #37BFD2;   
+    margin-bottom: 30px;   
+    align-items: flex-end;
+}

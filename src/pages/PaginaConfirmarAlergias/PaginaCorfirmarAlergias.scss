@@ -1,0 +1,24 @@
+.paginaConfirmarAlergias{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    .confirmar{
+        width: 85%;
+        height: 50px;
+        font-size: 20px;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #00bfff;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+}

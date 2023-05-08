@@ -1,0 +1,89 @@
+  .paginaLogin{
+  
+    .imgHead {
+      width: 100vw;
+    }
+    
+    .headerDiv {
+      position: relative;
+    }
+    
+    .logoDiv {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      color: black;
+      font-weight: bold;
+    }
+  
+    
+    .imgLogo {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+    
+    .bienvenidaTexto {
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5vh;
+      width: 100VW;
+      align-items: center;
+    }
+    
+    input {
+      width: 85%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    
+    button {
+      width: 85%;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #00bfff;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .olvidoDiv {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #00bfff;
+    }
+    
+    .registro {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: gray;
+    }
+    
+    h3 {
+      font-size: 20px;
+      color: #00bfff;
+      transition: all 0.3s ease-in-out;
+    }
+    
+  }

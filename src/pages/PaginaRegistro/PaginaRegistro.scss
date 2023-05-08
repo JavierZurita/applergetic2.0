@@ -1,0 +1,68 @@
+$formulario-color-gris: #F7F7F7;
+$color-borde-campo: #ccc;
+$color-camara: #333;
+$color-camara-hover: #444;
+.paginaRegistro{
+  min-height: 100vh;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .register{
+    min-height: 100vh;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__body{
+      width: 90%;        
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+      align-items: center;
+    }
+    &__form{        
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+      width: 100%;
+      margin-bottom: 30px;
+      margin-top: 60px;
+      max-width: 600px;
+    }
+    &__txt{         
+      color:#595f65;    
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid rgb(116, 116, 116);
+      font-size: 15px;
+      height: 60px;
+      font-family: "Monserrat-Estandart"; 
+    }
+    &__txt::placeholder{       
+        color:#d4d2d2;          
+    }
+  }
+    .imagen{
+      width: 150px;
+      height: 150px;
+    }
+    .guardar{
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #00bfff;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      a{
+          text-decoration: none;
+          color: white;
+      }
+  }
+}
