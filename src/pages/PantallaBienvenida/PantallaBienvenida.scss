@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%);
     color: black;
@@ -27,7 +27,7 @@
   
   .slide {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -53,10 +53,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3vh 0vh;
-    margin-bottom: 5vh;
     position: absolute;
-    bottom: 5%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -77,6 +75,20 @@
     height: 15px;
   }
   
+ 
+  .Next {
+    display: flex;
+    align-items: center;
+    height: 20vw;
+    width: 20vw;
+    position: absolute;
+    bottom: 2%;
+    right: 0%;
+    border: none;
+    background-color: white;
+    color: grey;
+  }
+  
   .Skip {
     height: 20vw;
     width: 20vw;
@@ -88,13 +100,4 @@
     color: grey;
   }
   
-  .Next {
-    height: 20vw;
-    width: 20vw;
-    position: absolute;
-    bottom: 2%;
-    right: 20%;
-    border: none;
-    background-color: white;
-    color: grey;
-  }
+ 

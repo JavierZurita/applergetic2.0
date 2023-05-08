@@ -18,16 +18,16 @@ export default function ModalMenu() {
 
     const openModal = () => {
       setOpen(true);
-      document.body.classList.add("modal-open");
+    
      
     };
   
     const closeModal = () => {
       setOpen(false);
-      document.body.classList.remove("modal-open");
+   
     };
 
-    return (<div>
+    return (<div className='ModalMenu'>
 <div className="burger" onClick={() => openModal()}>
 <GiHamburgerMenu />
 </div>

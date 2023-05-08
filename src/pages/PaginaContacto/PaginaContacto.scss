@@ -1,15 +1,19 @@
 .PaginaContacto{
-    font-size: 2vh;
     color: black;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+ p{
+    font-size: small;
+ }
 
 .Vol{
     border: none;
     background-color: white;
-    margin: 2vh;
     color: #1AC3E4;
     position: absolute;
     left: 2vh;
+} 
+
+.Vol svg{
+    color: #1AC3E4;
 }
 .Title{
     font-size: 3vh;

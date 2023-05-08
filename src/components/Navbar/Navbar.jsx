@@ -8,12 +8,14 @@ import "./Navbar.scss";
 
 export default function Navbar() {
 
-    return(<div className='icons_nav'>
+    return(<div className='nav'>
+    <div className='icons_nav'>
 
 <Link to="/PaginaHome"><BiHomeAlt2/> </Link>
 <Link to="/PaginaFavoritos"><AiOutlineStar/></Link>
 <Link to="/PaginaDiario"><TfiAgenda/></Link>
 <Link to="/compartir"><BsShare/></Link>
+</div>
 </div>
 
     )
