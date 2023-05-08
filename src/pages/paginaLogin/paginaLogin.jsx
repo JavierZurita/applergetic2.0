@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './PaginaLogin.scss';
 import { JwtContext } from '../../shared/context/Jwt.context';
 import { UserContext } from '../../shared/context/User.context';
+import { EmailContext } from '../../shared/context/Email.context';
 
 const PaginaLogin = () => {
   
@@ -13,9 +14,11 @@ const PaginaLogin = () => {
     const { setJwt,setUser } = useContext(JwtContext);
     const navigate = useNavigate();
     const {userData, setUserData} = useContext(UserContext);
+    const {emailContext, setEmailContext} = useContext(EmailContext);
 
     const onSubmit = formData => {
         // console.log("submit",formData);
+        setEmailContext(formData.email);
         axios.post(`http://localhost:5000/user/login`, formData).then(res => {
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('user', JSON.stringify(res.data.user))

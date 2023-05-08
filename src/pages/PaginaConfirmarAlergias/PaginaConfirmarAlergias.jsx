@@ -70,6 +70,7 @@ export default function PaginaConfirmarAlergias() {
             axios.get(`http://localhost:5000/user/email/${emailContext}`).then(res => {
                 console.log(res.data.user._id);
                 const id = res.data.user._id
+                
                 const updatedAlergias = {
                     alergias: seleccionados.map(item =>new mongoose.Types.ObjectId(item))
                 }
