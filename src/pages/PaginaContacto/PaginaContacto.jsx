@@ -1,59 +1,56 @@
 import { useState } from 'react';
 import "./PaginaContacto.scss";
+import { useForm } from 'react-hook-form';
+import { RegistroContext } from '../../shared/context/Registro.context';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function PaginaContacto() {
-  const [formData, setFormData] = useState({
-    NombreContacto: '',
-    emailContacto: '',
-    MovilCantacto: '',
-    NPoliza: ''
-  });
+  const registroContext = useContext(RegistroContext);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setFormData({
-      NombreContacto: '',
-      emailContacto: '',
-      MovilContacto: '',
-      NPoliza: ''
-    });
-  }
+  
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  }
-  const Atras = () => {
-    window.history.pushState(null, "", "/PaginaRegistro");
-    window.history.go();
+  const onSubmit = (formData) => {
+    console.log(registroContext.email);
+    const email = registroContext.email
+    console.log(formData);
+    axios.get(`http://localhost:5000/user/email/${email}`,formData).then(res => {
+      console.log(res.data.user._id);
+      const id = res.data.user._id
+      axios.put(`http://localhost:5000/user/${id}`, formData).then(res => {
+        console.log("actualizado");
+        console.log(res.data);
+        navigate('/PaginaAlergias');
+      })
+    })
   };
-  const Skip = () => {
-    window.history.pushState(null, "", "/PaginaConfirmarAlergias");
-    window.history.go();
-  };
-
-  const isDisabled = !(formData.NombreContacto && formData.emailContacto && formData.MovilContacto && formData.NPoliza);
-
   return (
     <div>
-        <button className="Vol" onClick={Atras}>  &gt; Volver </button>
+        <button className="Vol" onClick={() => {navigate('/PaginaRegistro')}}>  &gt; Volver </button>
         <p>2 de 4</p>
         <div className='Htext'>
             <h1 className='Title'>Vamos a añadir tu contacto en caso de emergencia.</h1>
             <p className='Sub'>Nos pondremos en contacto con tu persona de confianza y/o compañia deseguros en caso de emergencia. </p>
         </div>
-        <form className="Fromu" onSubmit={handleSubmit}>
-        <input className="bimput" placeholder='Nombre completo de tu contacto' type="text" name="NombreContacto" value={formData.name} onChange={handleChange} />
+        <form className="Fromu" onSubmit={handleSubmit(onSubmit)}>
+        <input className="bimput" placeholder='Nombre completo de tu contacto' type="text" name="NombreContacto"{...register("contactName", { required: true })} />
+        {errors.NombreContacto && <span>Este campo es obligatorio</span>}
         <br />
-        <input className="bimput" placeholder='Direccion e-mail' type="email" name="emailContacto" value={formData.email} onChange={handleChange} />
+        <input className="bimput" placeholder='Direccion e-mail' type="email" name="emailContacto"{...register("contactEmail", { required: true })} />
+        {errors.emailContacto && <span>Este campo es obligatorio</span>}
         <br />
-        <input className="bimput" placeholder='Movil' type="number" name="MovilContacto" value={formData.message} onChange={handleChange} />
+        <input className="bimput" placeholder='Movil' type="number" name="MovilContacto" {...register("contactNumber", { required: true })} />
+        {errors.MovilContacto && <span>Este campo es obligatorio</span>}
         <br />
-        <input className="bimput" placeholder='Compañia de Seguros / N· Poliza' type="text" name="NPoliza" value={formData.message} onChange={handleChange} />
+        <input className="bimput" placeholder='Compañia de Seguros / N· Poliza' type="text" name="NPoliza" {...register("company", { required: true })} />
+        {errors.NPoliza && <span>Este campo es obligatorio</span>}
         <br />
-        <button className={`Save ${isDisabled ? 'disabled' : ''}`}  disabled={isDisabled} type="submit" onClick={Skip}>Guardar emergencias</button>
-        </form>
-        <button className="Skipe" onClick={Skip}> Registrare mi contacto en otro momento </button>
+        <button className={`Save`} type="submit" >Guardar emergencias</button>
+      </form>
+        <button className="Skipe" > Registrare mi contacto en otro momento </button>
     </div>
   );
 }

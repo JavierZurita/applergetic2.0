@@ -47,6 +47,8 @@ export default function PaginaAlergias() {
         .catch(error => console.log(error));
     }, []);
 
+
+
     const handleAlergiaClick = (valor, inicial) => {
         console.log(valor);
         if (seleccionados.includes(valor)) {
@@ -72,6 +74,7 @@ export default function PaginaAlergias() {
         setInfoVisible((prevState) => ({...prevState, [key]: !prevState[key]}));
         setFlechaSelected(!flechaSelected);
     };      
+
     return(
         <div className="pagina-alergias">
             <HeaderRegister />
@@ -103,7 +106,7 @@ export default function PaginaAlergias() {
                     </div>
                 ))}
             </div>
-           <button className="guardar"><Link to="/PaginaConfirmarAlergias" onClick={() =>handleAlergiaClick("")}> Guardar </Link></button>
+           <button className="guardar"><Link to="/PaginaConfirmarAlergias"> Guardar </Link></button>
         </div>
     )
 }
