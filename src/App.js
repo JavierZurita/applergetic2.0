@@ -43,7 +43,7 @@ function App() {
       <UserContext.Provider value={{userData, setUserData}}>
       <RegistroContext.Provider value={{ contextData, setContextData }}>
       <Router>
-        <div className='enlaces'>
+        {/* <div className='enlaces'>
           <Link to="/PaginaAlergias" className='lin'>{('PaginaAlergias')}</Link>
           <Link to="/PaginaCarga" className='lin'>{('PaginaCarga')}</Link>
           <Link to="/PaginaConfirmarAlergias" className='lin'>{('PaginaConfirmarAlergias')}</Link>
@@ -59,7 +59,7 @@ function App() {
           <Link to="/PaginaRegistro" className='lin'>{('PaginaRegistro')}</Link>
           <Link to="/PantallaBienvenida" className='lin'>{('PantallaBienvenida')}</Link>
           <Link to="/PaginaLogin" className='lin'>{('PaginaLogin')}</Link>
-        </div>
+        </div> */}
        
           <Routes>
             <Route path="PaginaAlergias" element={<PaginaAlergias />} />
