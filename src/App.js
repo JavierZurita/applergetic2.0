@@ -53,11 +53,8 @@ function App() {
       <JwtContext.Provider value={{ jwt, setJwt , newUser, setUser }} >
       <UserContext.Provider value={{userData, setUserData}}>
       <RegistroContext.Provider value={{ contextData, setContextData }}>
-
       <CodebarContext.Provider value={{ codebar, setCodebar }}>
-
       <EmailContext.Provider value={{emailContext, setEmailContext}}>
-
       <Router>
         {/* <div className='enlaces'>
           <Link to="/PaginaAlergias" className='lin'>{('PaginaAlergias')}</Link>
@@ -97,12 +94,9 @@ function App() {
 
 
         </Router>
-
+        </EmailContext.Provider>
         </CodebarContext.Provider>
-
-      </EmailContext.Provider>
-
-      </RegistroContext.Provider>
+        </RegistroContext.Provider>
       </UserContext.Provider>
       </JwtContext.Provider>
       

@@ -61,20 +61,9 @@ export default function PaginaProductoEscaneado() {
         {datosProducto && datosProducto.ingredientes}
       </div>
       <a href="/PaginaEscaneo">
-  <button className="boton-volver">Volver</button>
-</a>
+      <button className="boton-volver">Volver</button>
+      </a>
     </div>
   );
 }
 
-import { useEffect } from "react"
-import { useContext } from "react";
-
-export default function PaginaProductoEscaneado() {
-
-    useEffect(() => {
-    },[]);
-    return(
-        <p>PaginaProductoEscaneado</p>
-    )
-}
