@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Quagga from 'quagga';
 import { Navigate } from 'react-router-dom';
+import {CodebarContext} from '../../shared/context/Codebar.context';
 import './PaginaEscaneo.scss';
 
 const PaginaEscaneo = ({ history }) => {
+  const {setCodebar} = useContext(CodebarContext);
   const scannerContainer = useRef(null);
   const [redirect, setRedirect] = useState(false);
 
@@ -22,13 +24,13 @@ const PaginaEscaneo = ({ history }) => {
         console.log(err);
         return;
       }
-      console.log('QuaggaJS ready to start.');
       Quagga.start();
     });
 
     Quagga.onDetected((data) => {
-      console.log(data); // data son los datos del código de barras
+      console.log(data.codeResult.code); // data son los datos del código de barras
       setRedirect(true);
+      setCodebar(data.codeResult.code)
     });
 
     return () => {

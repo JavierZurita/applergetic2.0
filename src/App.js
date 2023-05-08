@@ -21,6 +21,8 @@ import { RegistroContext } from './shared/context/Registro.context';
 import { useState } from 'react';
 import { JwtContext } from './shared/context/Jwt.context';
 import { UserContext } from './shared/context/User.context';
+import { CodebarContext } from './shared/context/Codebar.context';
+
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
   const [newUser,setUser] = useState({});
   const [userData, setUserData] = useState({});
+  const [codebar, setCodebar] = useState({});
 
   return (
     <div className="App">
@@ -42,6 +45,7 @@ function App() {
       <JwtContext.Provider value={{ jwt, setJwt , newUser, setUser }} >
       <UserContext.Provider value={{userData, setUserData}}>
       <RegistroContext.Provider value={{ contextData, setContextData }}>
+      <CodebarContext.Provider value={{ codebar, setCodebar }}>
       <Router>
         {/* <div className='enlaces'>
           <Link to="/PaginaAlergias" className='lin'>{('PaginaAlergias')}</Link>
@@ -81,9 +85,11 @@ function App() {
 
 
         </Router>
+        </CodebarContext.Provider>
       </RegistroContext.Provider>
       </UserContext.Provider>
       </JwtContext.Provider>
+      
       </header>
     </div>
   );
