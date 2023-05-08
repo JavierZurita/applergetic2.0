@@ -21,6 +21,7 @@ import { RegistroContext } from './shared/context/Registro.context';
 import { useState } from 'react';
 import { JwtContext } from './shared/context/Jwt.context';
 import { UserContext } from './shared/context/User.context';
+import { EmailContext } from './shared/context/Email.context';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
   const [newUser,setUser] = useState({});
   const [userData, setUserData] = useState({});
+  const [emailContext, setEmailContext] = useState({});
 
   return (
     <div className="App">
@@ -42,6 +44,7 @@ function App() {
       <JwtContext.Provider value={{ jwt, setJwt , newUser, setUser }} >
       <UserContext.Provider value={{userData, setUserData}}>
       <RegistroContext.Provider value={{ contextData, setContextData }}>
+      <EmailContext.Provider value={{emailContext, setEmailContext}}>
       <Router>
         {/* <div className='enlaces'>
           <Link to="/PaginaAlergias" className='lin'>{('PaginaAlergias')}</Link>
@@ -81,6 +84,7 @@ function App() {
 
 
         </Router>
+      </EmailContext.Provider>
       </RegistroContext.Provider>
       </UserContext.Provider>
       </JwtContext.Provider>
