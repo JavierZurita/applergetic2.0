@@ -63,7 +63,7 @@ function App() {
        
           <Routes>
             <Route path="PaginaAlergias" element={<PaginaAlergias />} />
-            <Route path="PaginaCarga" element={<PaginaCarga />} />
+            <Route path="" element={<PaginaCarga />} />
             <Route path="PaginaConfirmarAlergias" element={<PaginaConfirmarAlergias />} />
             <Route path="PaginaDiario" element={<PaginaDiario />} />
             <Route path="PaginaEscaneo" element={<PaginaEscaneo />} />
