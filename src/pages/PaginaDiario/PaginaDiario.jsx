@@ -24,6 +24,7 @@ export default function PaginaDiario() {
     // },[userData.diario]);
 
     useEffect(() => {
+        console.log(userData);
         const fetchProducts = () => {
           const array = [];
     

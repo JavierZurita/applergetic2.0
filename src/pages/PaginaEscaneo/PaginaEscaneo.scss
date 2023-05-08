@@ -1,0 +1,61 @@
+
+.escanerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .escanerTextoDiv{
+      width: 60%;
+  }
+  
+  video {
+    width: 70%; 
+    height: auto; 
+    border: 15px solid grey; 
+    border-radius: 20px; 
+  }
+  
+  
+  .drawingBuffer{
+      height: 3px;
+      width: 3px;
+  }
+  
+  .botonesDiv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px;
+    }
+  
+  .escanerBotonseleccionado{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px; 
+      border: none;
+      border-radius: 50%; 
+      margin: 10px;
+      background-color: rgb(84, 248, 248);
+  }
+  .escanerBoton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px; 
+    border: none;
+    border-radius: 50%; 
+    margin: 10px;
+    background-color: rgb(180, 179, 179);
+  }
+  
+  .imgBotonEscaner{
+      width: 100%;
+      height: 100%;
+   }
+  
+  
