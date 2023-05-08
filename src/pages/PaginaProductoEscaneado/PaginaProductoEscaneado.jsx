@@ -9,7 +9,7 @@ export default function PaginaProductoEscaneado() {
 
   const getdatosProducto = () => {
     console.log(codebar);
-    axios.get(`http://localhost:5000/producto/${codebar}`)
+    axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
         let mensajeApto = 'Este producto es apto para ti';

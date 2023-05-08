@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import Quagga from 'quagga';
 import { Navigate } from 'react-router-dom';
 import {CodebarContext} from '../../shared/context/Codebar.context';
-import { BarcodeScanner } from 'react-barcode-scanner';
 import './PaginaEscaneo.scss';
 
 const PaginaEscaneo = ({ history }) => {
