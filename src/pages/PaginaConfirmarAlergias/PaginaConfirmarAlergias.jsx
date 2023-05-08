@@ -30,7 +30,7 @@ export default function PaginaConfirmarAlergias() {
     }
     const handleSubmit = () =>{
         setContextData(prevData => ({ ...prevData, alergiasRegistro: seleccionados }));
-
+         // FALTA AXIOS
     }
     return(
         <div className="paginaConfirmarAlergias">

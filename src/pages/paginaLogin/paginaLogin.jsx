@@ -23,7 +23,7 @@ const PaginaLogin = () => {
             setUser(JSON.stringify(res.data.user));
             // console.log(res.data.userInfo);
             setUserData(res.data.userInfo);
-            navigate('/PaginaDiario');
+            navigate('/PaginaHome');
         })
     }
 
