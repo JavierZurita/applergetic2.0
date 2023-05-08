@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import Quagga from 'quagga';
 import { Navigate } from 'react-router-dom';
@@ -41,25 +42,39 @@ const PaginaEscaneo = ({ history }) => {
   if (redirect) {
     return <Navigate to='/PaginaProductoEscaneado' />;
   }
+=======
+import React, { useState } from 'react';
+import { BarcodeScanner } from 'react-barcode-scanner';
+
+export default function PaginaEscaneo() {
+  const [barcode, setBarcode] = useState('');
+  const [scanning, setScanning] = useState(false);
+  const [scanned, setScanned] = useState(false);
+
+  const handleScan = (result) => {
+    setBarcode(result);
+    setScanning(false);
+    setScanned(true);
+  };
+
+  const startScanning = () => {
+    setScanning(true);
+    setScanned(false);
+  };
+
 
   return (
-    <div className='escanerDiv'>
-      <div className='escanerTituloDiv'><h4><strong>Escaneando...</strong></h4></div>
-      <div className='escanerTextoDiv'><p>Tan solo tienes que centrar el <strong>código de barras</strong> del producto en el recuadro</p></div>
-      <div className='lectorDiv' ref={scannerContainer} id="barcode-scanner"></div>
-      <div className='botonesDiv'>
-        <button className='escanerBotonseleccionado' type="button">
-          <img className='imgBotonEscaner' src="./img/codigobarras.png" alt="codigo de barras" />
-        </button>
-        <button className='escanerBoton' type="button">
-          <img className='imgBotonEscaner' src="./img/QR.png" alt="codigo QR" />
-        </button>
-        <button className='escanerBoton' type="button">
-          <img className='imgBotonEscaner' src="./img/nfc.png" alt="NFC" />
-        </button>
-      </div>
+    <div>
+      <h1>Escanea tu producto</h1>
+      {scanned && <p>Código de barras leído correctamente: {barcode}</p>}
+      {scanning ? (
+        <div>
+          <p>Escaneando...</p>
+          <BarcodeScanner onDetected={handleScan} />
+        </div>
+      ) : (
+        <button onClick={startScanning}>Escanear código de barras</button>
+      )}
     </div>
   );
 }
-
-export default PaginaEscaneo;

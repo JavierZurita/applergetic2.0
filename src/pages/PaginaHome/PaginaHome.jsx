@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ModalMenu from "../../components/ModalMenu/ModalMenu";
 import Navbar from "../../components/Navbar/Navbar";
 
+
 export default function PaginaHome() {
   return (
     <div className="Pagina_home">
@@ -20,7 +21,7 @@ export default function PaginaHome() {
         <p>Mi guía alimentaria</p>
       </div>
         <button className="button_escaner"><Link to="/PaginaEscaneo">
-          <AiOutlineBarcode  color="white"/> Escanear  </Link>
+          <AiOutlineBarcode /> Escanear  </Link>
         </button>
       <div className="texto">
         <p>Escanea un nuevo producto.</p>

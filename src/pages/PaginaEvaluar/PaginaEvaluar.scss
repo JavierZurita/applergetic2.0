@@ -5,20 +5,40 @@
  
     .letra{
         color: black; 
-        font-size: 25px;
+        font-size: 20px;
+        margin-bottom: 1vh;
     }
   
     .logo{
         width: 45vw;
         height: 45vw;
+        margin-bottom: 7vh;
     }
-  
+    .estrellas{
+        margin-bottom: 20vh;
+    }
     
-    .close_button{
-        display: flex;
-        width: 8vw;
-        height: 8vw;
-   
+    .puntuacion{
+        margin-top: 7vh;
+    }
 
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #37BFD2; 
+    font-weight: bold; 
 }
+
+.volver_login{
+    display: flex;
+    margin-bottom: 15vh;
+    align-self: flex-start;
+    width: 100%;
+    margin-left: 5px; 
+}
+
+
 }

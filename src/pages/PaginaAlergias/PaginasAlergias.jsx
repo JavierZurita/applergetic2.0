@@ -10,7 +10,7 @@ import { UserContext } from "../../shared/context/User.context";
 export default function PaginaAlergias() {
     
     const { contextData, setContextData } = useContext(RegistroContext);
-    const { contactName, contactEmail, contactNumber, company, alergiasRegistro } = contextData;
+    const { email, contactName, contactEmail, contactNumber, company, alergiasRegistro } = contextData;
     const {userData, setUserData} = useContext(UserContext);
 
     const [alergiasPorLetra, setAlergiasPorLetra] = useState("");
@@ -49,15 +49,15 @@ export default function PaginaAlergias() {
 
 
 
-    const handleAlergiaClick = (valor, inicial) => {
+    const handleAlergiaClick = (id, inicial) => {
         // console.log(valor);
-        if (seleccionados.includes(valor)) {
-            setSeleccionados(seleccionados.filter(sel => sel !== valor));
+        if (seleccionados.includes(id)) {
+            setSeleccionados(seleccionados.filter(sel => sel !== id));
         } else {
-            setSeleccionados([...seleccionados, valor]);
+            setSeleccionados([...seleccionados, id]);
         }
         const inicialesSeleccionadas = {...letrasSeleccionadas};
-        if(seleccionados.includes(valor)){
+        if(seleccionados.includes(id)){
             if(inicialesSeleccionadas[inicial]){
                 inicialesSeleccionadas[inicial] = false;
             } else {
@@ -98,7 +98,7 @@ export default function PaginaAlergias() {
                         </div>
                         <div className={infoVisible[key] ? "alergias__botones hidden" : "alergias__botones"} style={{ display: infoVisible[key] ? "none" : "flex" }}>
                            {alergias[key] && alergias[key].map(alergia => (
-                            <div key={alergia.name} onClick={(e) =>handleAlergiaClick(alergia.name, key)} className={seleccionados.includes(alergia.name) ? 'opcion selected' : 'opcion'}>
+                            <div key={alergia._id} onClick={(e) =>handleAlergiaClick(alergia._id, key)} className={seleccionados.includes(alergia._id) ? 'opcion selected' : 'opcion'}>
                                 {alergia.name}
                             </div>
                             ))} 

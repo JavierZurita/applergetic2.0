@@ -1,85 +1,81 @@
 .Pagina_home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- 
-    .nombre{
-        margin: 0;
-        color: black; 
-        font-size: 40px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .nombre{
+      margin: 0;
+      color: black; 
+      font-size: 40px;
+  }
+
+  .logo{
+      width: 30vw;
+      height: 30vw;
+  }
   
-    .logo{
-        width: 30vw;
-        height: 30vw;
-    }
-    
 .button_escaner{
-    width: 85%;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #26C7DC;
-  
-   
+  width: 85%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #26C7DC;
 }
+
 .button_lupa{
-    width: 85%;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color:#C4C4C4;;
-    
+  width: 85%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color:#C4C4C4;;
+  
 }
 .button_life{
-    width: 85%;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color:#F57B97;;
-
+  width: 85%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color:#F57B97;
 }
 
 a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    color: white; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: white;
 }
 
 p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: gray;
-  }
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: gray;
+}
 
-  .button_escaner svg {
-    margin-right: 30px;
-    width: 8vw;
-    height: 8vw;
-    color:red
-  }
-  .button_lupa svg {
-    margin-right: 30px;
-    width: 8vw;
-    height: 8vw;
-  }
-  .button_life svg {
-    margin-right: 30px;
-    width: 8vw;
-    height: 8vw;
-    
-  }
+.button_escaner svg {
+  margin-right: 30px;
+  width: 8vw;
+  height: 8vw;
+}
+.button_lupa svg {
+  margin-right: 30px;
+  width: 8vw;
+  height: 8vw;
+}
+.button_life svg {
+  margin-right: 30px;
+  width: 8vw;
+  height: 8vw;
+}
 
-  .texto_nombre{
-    margin-bottom: 45px;
+.texto_nombre{
+  margin-bottom: 45px;
 
-  }
+}
 
 
 }
