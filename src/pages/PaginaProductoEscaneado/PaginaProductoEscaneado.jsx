@@ -8,34 +8,43 @@ import { EmailContext } from '../../shared/context/Email.context';
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const {emailContext} = useContext(EmailContext);
-  const [datosProducto, setdatosProducto] = useState(null);
-  useEffect(()=> {
-    console.log(codebar);
-    console.log(emailContext);
-    getdatosProducto()
-    getDatosUsuario()
-  },[])
+  const [datosProducto, setdatosProducto] = useState({});
+  const [datosUsuario, setDatosUsuario] = useState({});
+  const [imgVisible, setImagenVisible] = useState();
 
+let mensajeApto ="";
+
+
+useEffect(()=> {
+  getdatosProducto()
+  getDatosUsuario()
+
+  if(datosProducto.alergias === datosUsuario){
+    mensajeApto = "Este producto no es apto para ti";
+    setImagenVisible(false)
+  }
+  else{
+    mensajeApto = "Este producto si es apto para ti";
+    setImagenVisible(true)
+  }
+
+
+},[])
+ 
+  console.log(emailContext);
   const getdatosProducto = () => {
     console.log(codebar);
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
-        console.log(response.data);
-        let mensajeApto = 'Este producto es apto para ti';
 
-        for (const alergia of producto.alergias) {
-          //APUNTAR AL USUARIO v
-          if (producto.ingredients.includes(alergia)) {
-            mensajeApto = 'Este producto no es apto para ti';
-            break;
-          }
-        }
         setdatosProducto({
           mensajeApto: mensajeApto,
-          image: producto.imagen,
-          name: producto.nombre,
+          image: producto.image,
+          name: producto.name,
           ingredientes: producto.ingredientes.join(', '),
+          marca: producto.marca,
+          alergias: producto.alergias
         });
       })
       .catch(error => {
@@ -50,16 +59,15 @@ export default function PaginaProductoEscaneado() {
       .then(response => {
         const usuario = response.data.user.alergias;
         console.log(usuario);
-      })
 
-    
+        setDatosUsuario({
+          usuario
+        })
+      })
   }
 
   return (
     <div className="productoEscaneadoDiv">
-      <div className="volverDiv">
-        <a href="/PaginaEscaneo">&lt; Volver</a>
-      </div>
       <div className="TituloResutadoDiv">
         <h4>Aquí tienes el resultado.</h4>
       </div>
@@ -67,10 +75,13 @@ export default function PaginaProductoEscaneado() {
         {datosProducto && datosProducto.mensajeApto}
       </div>
       <div className="productoDiv">
-        {datosProducto && <img src={datosProducto.imagen} alt="Producto" />}
+        {imgVisible && <img className="imgDelantera" src='./img/verde.png' alt='checkverde'/>}
+        {!imgVisible && <img className="imgDeantera" src='./img/rojo.png' alt='checkrojo'/>}
+
+        {datosProducto && <img className="imgTrasera" src={datosProducto.image} alt="Producto" />}
       </div>
       <div className="nombreProductoDiv">
-        {datosProducto && datosProducto.nombre}
+        {datosProducto && datosProducto.name}
       </div>
       <div className="marcaProductoDiv">
         {datosProducto && datosProducto.marca}
@@ -78,9 +89,11 @@ export default function PaginaProductoEscaneado() {
       <div className="ingredientesProductoDiv">
         {datosProducto && datosProducto.ingredientes}
       </div>
+      <div className='botonEscaneoDiv'>
       <a href="/PaginaEscaneo">
       <button className="boton-volver">Volver</button>
       </a>
+      </div>
     </div>
   );
 }
