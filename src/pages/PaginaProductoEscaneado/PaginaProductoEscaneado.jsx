@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { CodebarContext } from '../../shared/context/Codebar.context';
 import './PaginaProductoEscaneado.scss'
@@ -7,15 +7,18 @@ import { EmailContext } from '../../shared/context/Email.context';
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const [datosProducto, setdatosProducto] = useState(null);
+useEffect(()=> {
+  console.log(codebar);
+  getdatosProducto()
+},[])
   const {EmailContext} = useContext(EmailContext);
-
   console.log(EmailContext);
   const getdatosProducto = () => {
     console.log(codebar);
-
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
+        console.log(response.data);
         let mensajeApto = 'Este producto es apto para ti';
 
         for (const alergia of producto.alergias) {
