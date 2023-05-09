@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+  
     p{
         color: black;
         font-size: small;
@@ -12,18 +14,9 @@
         align-items: center;
         margin-bottom: 15vh;
         align-self: flex-start;
-        width: 90%;
-        margin-left: 14px;
-       
+        width: 80%;
+    
       }
-   
-.volver_alergia a{
-    color: #37BFD2; 
-    font-weight: bold; 
-    font-size: medium;
-  
-}
-
 
 a{
     display: flex;
@@ -31,7 +24,6 @@ a{
     align-items: center;
     text-align: center;
     text-decoration: none;
- 
 }
 
 .button_producto{
@@ -49,7 +41,9 @@ a{
 }
 
 .text_registro{
-    margin-top: 60px;
+    margin: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
     color: black;
 }
 }

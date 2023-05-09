@@ -5,6 +5,7 @@ import { RegistroContext } from "../../shared/context/Registro.context";
 import { useState } from "react";
 import { EmailContext } from "../../shared/context/Email.context";
 import axios from "axios";
+import HeaderRegister from "../../components/Header-register/HeaderRegister";
 const mongoose = require('mongoose');
 
 export default function PaginaConfirmarAlergias() {
@@ -87,6 +88,7 @@ export default function PaginaConfirmarAlergias() {
     }
     return(
         <div className="paginaConfirmarAlergias">
+        <HeaderRegister></HeaderRegister>
               <h3>Confirma tu selección.</h3>
               <p>A continuación te resumimos los alimentos registrados como peligrosos para ti.</p>
             <>

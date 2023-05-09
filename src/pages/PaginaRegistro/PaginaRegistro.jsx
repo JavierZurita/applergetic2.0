@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import "./PaginaRegistro.scss";
 import axios from 'axios';
 import { useContext } from "react";
 import { RegistroContext } from "../../shared/context/Registro.context";
 import { EmailContext } from "../../shared/context/Email.context";
+import HeaderRegister from "../../components/Header-register/HeaderRegister";
 
 function Registro() {
   const { register, handleSubmit, formState: { errors } } = useForm();    
@@ -31,7 +31,7 @@ function Registro() {
 
   return (
     <div className="paginaRegistro"> 
-      <Link to="/">Volver a Home</Link>
+      <HeaderRegister></HeaderRegister>
       <h3>Dinos quién eres.</h3>
       <div className="campo">
         <img className="imagen" src="https://res.cloudinary.com/dw11t6pjw/image/upload/v1679473514/cld-sample.jpg" alt="Foto de perfil" />

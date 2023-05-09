@@ -1,7 +1,6 @@
 
  
   .modal {
-    position: fixed;
     top: 30px; 
     width: 200px; 
     height: 300px; 
@@ -11,15 +10,7 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 20px;
-    z-index: 1; 
 
-
-
-
-.burger svg{
-    color: #37BFD2;  
-}
- 
   .deplegable {
     list-style: none;
     padding: 0;

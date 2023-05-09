@@ -5,8 +5,8 @@ import { RegistroContext } from '../../shared/context/Registro.context';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AiOutlineLeft } from 'react-icons/ai';
 import { EmailContext } from '../../shared/context/Email.context';
+import HeaderRegister from "../../components/Header-register/HeaderRegister";
 
 export default function PaginaContacto() {
   const registroContext = useContext(RegistroContext);
@@ -31,7 +31,7 @@ export default function PaginaContacto() {
   return (
     <div className='PaginaContacto'>
     <div>
-        <button className="Vol" onClick={() => {navigate('/PaginaRegistro')}}> <AiOutlineLeft/> Volver </button>
+        <HeaderRegister></HeaderRegister>
         <p>2 de 4</p>
         <div className='Htext'>
             <h1 className='Title'>Vamos a añadir tu contacto en caso de emergencia.</h1>
