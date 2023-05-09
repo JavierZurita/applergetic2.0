@@ -26,6 +26,7 @@ import { CodebarContext } from './shared/context/Codebar.context';
 
 
 import { EmailContext } from './shared/context/Email.context';
+import { DiarioContext } from './shared/context/Diario.context';
 
 
 
@@ -41,11 +42,9 @@ function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
   const [newUser,setUser] = useState({});
   const [userData, setUserData] = useState({});
-
   const [codebar, setCodebar] = useState({});
-
   const [emailContext, setEmailContext] = useState({});
-
+  const [diarioContext, setDiarioContext] = useState([])
 
   return (
     <div className="App">
@@ -55,6 +54,7 @@ function App() {
       <RegistroContext.Provider value={{ contextData, setContextData }}>
       <CodebarContext.Provider value={{ codebar, setCodebar }}>
       <EmailContext.Provider value={{emailContext, setEmailContext}}>
+      <DiarioContext.Provider value={{diarioContext, setDiarioContext}}>
       <Router>
         {/* <div className='enlaces'>
           <Link to="/PaginaAlergias" className='lin'>{('PaginaAlergias')}</Link>
@@ -94,6 +94,7 @@ function App() {
 
 
         </Router>
+        </DiarioContext.Provider>
         </EmailContext.Provider>
         </CodebarContext.Provider>
         </RegistroContext.Provider>

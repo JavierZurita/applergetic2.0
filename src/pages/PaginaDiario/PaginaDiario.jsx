@@ -3,22 +3,23 @@ import "./PaginaDiario.scss";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { DiarioContext } from "../../shared/context/Diario.context";
 
 export default function PaginaDiario() {
 
-    const {userData, setUserData} = useContext(UserContext);
+    const { diarioContext, setDiarioContext } = useContext(DiarioContext);
     const [arrayProductos, setArrayProductos] = useState([]);
     const [visible, setVisible] = useState({});
     const [notas, setNotas] = useState({});
 
     useEffect(()=>{
         const array = [];
-        // console.log(userData.diario);
-        if(userData.diario){
+        console.log(diarioContext);
+        if(diarioContext){
           const inicialVisible = {};
 
-            for (const producto of userData.diario) {
-                axios.get(`http://localhost:5000/productos/${producto}`).then(res => {
+            for (const producto of diarioContext) {
+                axios.get(`http://localhost:5000/productos/${producto.id}`).then(res => {
                     array.push(res.data);
                     inicialVisible[array.length - 1] = true;
                     setArrayProductos([...array]);
@@ -27,7 +28,7 @@ export default function PaginaDiario() {
             
             // console.log(array);                
         }}
-    },[userData.diario]);
+    },[]);
 
     // useEffect(() => {
     //     console.log(userData);
@@ -71,7 +72,7 @@ export default function PaginaDiario() {
       };
 
       const handleClick = () => {
-
+          setDiarioContext([]);
       }
       const handleChange = (text, index) => {
         setNotas((notas) => ({...notas,[index]: text }));

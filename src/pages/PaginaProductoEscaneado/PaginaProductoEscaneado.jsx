@@ -5,24 +5,28 @@ import './PaginaProductoEscaneado.scss'
 import { EmailContext } from '../../shared/context/Email.context';
 import { Link, useNavigate } from 'react-router-dom';
 import "./PaginaProductoEscaneado.scss";
+import { DiarioContext } from '../../shared/context/Diario.context';
 
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const {emailContext} = useContext(EmailContext);
+  const {diarioContext, setDiarioContext} = useContext(DiarioContext);
   const [datosProducto, setdatosProducto] = useState({});
   const [datosUsuario, setDatosUsuario] = useState({});
-
   const [cargandoDatos, setCargandoDatos] = useState(false);
   const [imgVisible, setImagenVisible] = useState();
   const navigate = useNavigate();
   let mensajeApto = "";
+
   useEffect(()=> {
+    console.log("ContextDairio:");
+    console.log(diarioContext);
     let cont = 0;
     getdatosProducto();
     getDatosUsuario();
 
-    // for (const alergia of datosUsuario) {
       if(datosProducto.alergias){
+        setDiarioContext([...diarioContext, datosProducto]);
         for (const alergiaProd of datosProducto.alergias) {
           if(datosUsuario.includes(alergiaProd)){
             console.log("incluye: ",alergiaProd);
@@ -37,12 +41,9 @@ export default function PaginaProductoEscaneado() {
           setImagenVisible(true);
         }
       }
-
-    // }
-
   },[cargandoDatos])
  
-  console.log(emailContext);
+  // console.log(emailContext);
   const getdatosProducto = () => {
     // console.log(codebar);
      
@@ -50,10 +51,11 @@ export default function PaginaProductoEscaneado() {
       .then(response => {
         const producto = response.data;
 
-        console.log(response.data.alergias);
+        // console.log(response.data.alergias);
         // console.log(producto);
         const copiaProducto = ({
           mensajeApto: mensajeApto,
+          id: producto._id,
           image: producto.image,
           name: producto.name,
           ingredientes: producto.ingredientes.join(', '),
@@ -72,11 +74,11 @@ export default function PaginaProductoEscaneado() {
     axios.get(`http://localhost:5000/user/email/${emailContext}`)
       .then(response => {
         const usuario = response.data.user.alergias;
-        console.log(usuario);
+        // console.log(usuario);
         for(const al of usuario){
           arrayAlergias.push(al._id)
         }
-        console.log(arrayAlergias);
+        // console.log(arrayAlergias);
         setDatosUsuario(arrayAlergias);
       })
       .catch(error => {
