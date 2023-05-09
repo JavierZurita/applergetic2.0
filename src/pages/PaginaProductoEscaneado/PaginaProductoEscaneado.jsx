@@ -3,7 +3,7 @@ import axios from 'axios';
 import { CodebarContext } from '../../shared/context/Codebar.context';
 import './PaginaProductoEscaneado.scss'
 import { EmailContext } from '../../shared/context/Email.context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./PaginaProductoEscaneado.scss";
 
 export default function PaginaProductoEscaneado() {
@@ -13,7 +13,7 @@ export default function PaginaProductoEscaneado() {
   const [datosUsuario, setDatosUsuario] = useState({});
   const [cargandoDatos, setCargandoDatos] = useState(false);
   const [imgVisible, setImagenVisible] = useState();
-
+  const navigate = useNavigate();
   let mensajeApto = "";
   useEffect(()=> {
     let cont = 0;
@@ -87,7 +87,7 @@ export default function PaginaProductoEscaneado() {
   return (
     <div className="productoEscaneadoDiv">
       <div className="volverDiv">
-        <a href="/PaginaEscaneo">&lt; Volver</a>
+        <div onClick={()=> {navigate('/PaginaHome')}}>X</div>
       </div>
       <div className="TituloResutadoDiv">
         <h4>Aquí tienes el resultado.</h4>
