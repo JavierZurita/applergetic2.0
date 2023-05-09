@@ -1,9 +1,11 @@
 .paginaDiario{
-    color: black;
     display: flex;
+    color: black;
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    text-align: center;
+    justify-content: center;
     .titulo{
         width: 50%;
     }

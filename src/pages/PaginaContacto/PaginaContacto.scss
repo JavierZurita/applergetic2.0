@@ -1,20 +1,12 @@
 .PaginaContacto{
+    display: flex;
     color: black;
+    text-align: center;
+    justify-content: center;
  p{
     font-size: small;
  }
-
-.Vol{
-    border: none;
-    background-color: white;
-    color: #1AC3E4;
-    position: absolute;
-    left: 2vh;
-} 
-
-.Vol svg{
-    color: #1AC3E4;
-}
+ 
 .Title{
     font-size: 3vh;
     padding: 0vh 10vh;

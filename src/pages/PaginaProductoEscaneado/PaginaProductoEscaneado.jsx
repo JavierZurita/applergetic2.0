@@ -11,6 +11,7 @@ export default function PaginaProductoEscaneado() {
   const {emailContext} = useContext(EmailContext);
   const [datosProducto, setdatosProducto] = useState({});
   const [datosUsuario, setDatosUsuario] = useState({});
+
   const [cargandoDatos, setCargandoDatos] = useState(false);
   const [imgVisible, setImagenVisible] = useState();
   const navigate = useNavigate();
@@ -40,13 +41,15 @@ export default function PaginaProductoEscaneado() {
     // }
 
   },[cargandoDatos])
-
+ 
+  console.log(emailContext);
   const getdatosProducto = () => {
     // console.log(codebar);
      
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
+
         console.log(response.data.alergias);
         // console.log(producto);
         const copiaProducto = ({
@@ -109,9 +112,7 @@ export default function PaginaProductoEscaneado() {
       <div className="ingredientesProductoDiv">
         {datosProducto && datosProducto.ingredientes}
       </div>
-      
-      <button className="boton-volver"><Link to="/PaginaEscaneo">Escanear otro producto</Link></button>
-      
+    <button className="boton-volver"><Link to="/PaginaEscaneo">Escanear otro producto</Link></button>
     </div>
   );
 }
