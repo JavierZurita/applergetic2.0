@@ -1,6 +1,7 @@
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+
 import { Link } from 'react-router-dom';
 import "./PaginaFinRegistro.scss"
+import HeaderRegister from '../../components/Header-register/HeaderRegister';
 
 export default function PaginaFinRegistro() {
 
@@ -8,7 +9,7 @@ export default function PaginaFinRegistro() {
     return(<div className='PaginaFinRegistro'>
       <div class='volver_alergia'>
   <div>
-    <Link to="/PaginaLogin"><AiOutlineArrowLeft /> Volver</Link>
+  <HeaderRegister></HeaderRegister>
   </div>
   <p>4 de 4</p>
   <div >

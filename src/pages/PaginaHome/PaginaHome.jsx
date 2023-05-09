@@ -12,7 +12,7 @@ export default function PaginaHome() {
     <div className="Pagina_home">
       <div>
       <ModalMenu></ModalMenu>
-        <img class="logo" src="./img/portada.png" alt="APPlergetic" />
+        <img className="logo" src="./img/portada.png" alt="APPlergetic" />
       </div>
       <div>
         <h4 className="nombre">Applergic</h4>

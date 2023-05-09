@@ -1,9 +1,9 @@
 
 import { useState } from 'react';
 import Funcionalidad from './Funcionalidad';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import "./PaginaEvaluar.scss";
+import HeaderRegister from '../../components/Header-register/HeaderRegister';
 
 export default function PaginaEvaluar({onClose}) {
   const [rating, setRating] = useState(0);
@@ -14,9 +14,9 @@ export default function PaginaEvaluar({onClose}) {
 
   return (
     <div className='Pagina_Evaluar'>
-    <div className='volver_login'>
-<Link to="/PaginaLogin"> <AiOutlineArrowLeft/> Volver </Link>
-</div>
+  
+<HeaderRegister></HeaderRegister>
+
    <div >
             <img class="logo" src="./img/portada.png" alt="APPlergetic"/>
         </div>
