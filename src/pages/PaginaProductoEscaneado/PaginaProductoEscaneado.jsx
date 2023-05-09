@@ -3,56 +3,85 @@ import axios from 'axios';
 import { CodebarContext } from '../../shared/context/Codebar.context';
 import './PaginaProductoEscaneado.scss'
 import { EmailContext } from '../../shared/context/Email.context';
-
+import { Link } from 'react-router-dom';
+import "./PaginaProductoEscaneado.scss";
 
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const {emailContext} = useContext(EmailContext);
-  const [datosProducto, setdatosProducto] = useState(null);
+  const [datosProducto, setdatosProducto] = useState({});
+  const [datosUsuario, setDatosUsuario] = useState({});
+  const [cargandoDatos, setCargandoDatos] = useState(false);
+  const [imgVisible, setImagenVisible] = useState();
+
+  let mensajeApto = "";
   useEffect(()=> {
-    console.log(codebar);
-    console.log(emailContext);
-    getdatosProducto()
-    getDatosUsuario()
-  },[])
+    let cont = 0;
+    getdatosProducto();
+    getDatosUsuario();
+
+    // for (const alergia of datosUsuario) {
+      if(datosProducto.alergias){
+        for (const alergiaProd of datosProducto.alergias) {
+          if(datosUsuario.includes(alergiaProd)){
+            console.log("incluye: ",alergiaProd);
+            cont++;
+          }
+        }
+        if(cont > 0){
+          console.log("Producto no apto");
+          setImagenVisible(false);
+        } else {
+          console.log("Producto apto");
+          setImagenVisible(true);
+        }
+      }
+
+    // }
+
+  },[cargandoDatos])
 
   const getdatosProducto = () => {
-    console.log(codebar);
+    // console.log(codebar);
+     
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
-        console.log(response.data);
-        let mensajeApto = 'Este producto es apto para ti';
-
-        for (const alergia of producto.alergias) {
-          //APUNTAR AL USUARIO v
-          if (producto.ingredients.includes(alergia)) {
-            mensajeApto = 'Este producto no es apto para ti';
-            break;
-          }
-        }
-        setdatosProducto({
+        console.log(response.data.alergias);
+        // console.log(producto);
+        const copiaProducto = ({
           mensajeApto: mensajeApto,
-          image: producto.imagen,
-          name: producto.nombre,
+          image: producto.image,
+          name: producto.name,
           ingredientes: producto.ingredientes.join(', '),
+          alergias: producto.alergias,
+          marca: producto.marca
         });
+        setdatosProducto(copiaProducto);
       })
       .catch(error => {
         console.error(error);
-        setdatosProducto({
-          mensajeApto: 'No se ha encontrado el producto',
-        });
       });
   };
+
   const getDatosUsuario = () => {
+    const arrayAlergias = [];
     axios.get(`http://localhost:5000/user/email/${emailContext}`)
       .then(response => {
         const usuario = response.data.user.alergias;
         console.log(usuario);
+        for(const al of usuario){
+          arrayAlergias.push(al._id)
+        }
+        console.log(arrayAlergias);
+        setDatosUsuario(arrayAlergias);
       })
-
-    
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(()=>{
+        setCargandoDatos(true);
+      })
   }
 
   return (
@@ -67,10 +96,12 @@ export default function PaginaProductoEscaneado() {
         {datosProducto && datosProducto.mensajeApto}
       </div>
       <div className="productoDiv">
-        {datosProducto && <img src={datosProducto.imagen} alt="Producto" />}
+        {imgVisible && <img className='imgDelantera' src="./img/verde.png" alt='imgTrasera'/>}
+        {!imgVisible && <img className='imgDelantera' src="./img/rojo.png" alt='imgTrasera'/>}
+        {datosProducto && <img className='imgTrasera' src={datosProducto.image} alt="Producto" />}
       </div>
       <div className="nombreProductoDiv">
-        {datosProducto && datosProducto.nombre}
+        {datosProducto && datosProducto.name}
       </div>
       <div className="marcaProductoDiv">
         {datosProducto && datosProducto.marca}
@@ -78,9 +109,9 @@ export default function PaginaProductoEscaneado() {
       <div className="ingredientesProductoDiv">
         {datosProducto && datosProducto.ingredientes}
       </div>
-      <a href="/PaginaEscaneo">
-      <button className="boton-volver">Volver</button>
-      </a>
+      
+      <button className="boton-volver"><Link to="/PaginaEscaneo">Escanear otro producto</Link></button>
+      
     </div>
   );
 }

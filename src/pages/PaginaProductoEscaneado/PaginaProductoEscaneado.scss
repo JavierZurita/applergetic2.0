@@ -1,20 +1,36 @@
-.volverDiv a {
-    text-decoration: none;
-    color: #74f5ee;
-  }
+.productoEscaneadoDiv{
+  .volverDiv a {
+      text-decoration: none;
+      color: #74f5ee;
+    }
 
-.productoDiv{
-    width: 70%; 
-    min-height: 50px;
-    height: auto; 
-    border: 15px solid grey; 
-    border-radius: 20px; 
+  .productoDiv{
+    position: relative;
+      width: 70%;
+      height: 175px; 
+
+    .imgTrasera{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 0;
+      right: 0;
+    }
+
+    .imgDelantera{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      z-index: 1;
+    }
+  }
+  .boton-volver {
+      background-color:  #74f5ee;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
 }
-
-.boton-volver {
-    background-color:  #74f5ee;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
