@@ -4,20 +4,17 @@ import { CodebarContext } from '../../shared/context/Codebar.context';
 import './PaginaProductoEscaneado.scss'
 import { EmailContext } from '../../shared/context/Email.context';
 
+
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
+  const {emailContext} = useContext(EmailContext);
   const [datosProducto, setdatosProducto] = useState(null);
 
-  const {emailContext} = useContext(EmailContext);
-
-  console.log(emailContext);
-  useEffect(()=> {
-    console.log(codebar);
-    getdatosProducto()
+useEffect(()=> {
+  console.log(codebar);
+  getdatosProducto()
+  getDatosUsuario()
 },[])
-
-  console.log(EmailContext);
-  
   const getdatosProducto = () => {
     console.log(codebar);
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
@@ -33,7 +30,6 @@ export default function PaginaProductoEscaneado() {
             break;
           }
         }
-
         setdatosProducto({
           mensajeApto: mensajeApto,
           image: producto.imagen,
@@ -48,6 +44,15 @@ export default function PaginaProductoEscaneado() {
         });
       });
   };
+  const getDatosUsuario = () => {
+    axios.get(`http://localhost:5000/user/email/${emailContext}`)
+      .then(response => {
+        const usuario = response.data.user.alergias;
+        console.log(usuario);
+      })
+
+    
+  }
 
   return (
     <div className="productoEscaneadoDiv">
