@@ -16,7 +16,7 @@ export default function PaginaAlergias() {
     const [alergiasPorLetra, setAlergiasPorLetra] = useState("");
     const [alergias, setAlergias] = useState("");
     const [seleccionados, setSeleccionados] = useState([]);
-    const [letrasSeleccionadas, setLetrasSeleccionadas] = useState([]);
+    const [seleccInicial, setSeleccInicial] = useState([]);
     const [flechaSelected, setFlechaSelected] = useState(false);
     const [infoVisible, setInfoVisible] = useState({});
 
@@ -47,26 +47,19 @@ export default function PaginaAlergias() {
         .catch(error => console.log(error));
     }, []);
 
-
-
-    const handleAlergiaClick = (id, inicial) => {
-        // console.log(valor);
+    const handleAlergiaClick = (id, inicial, name) => {
         if (seleccionados.includes(id)) {
             setSeleccionados(seleccionados.filter(sel => sel !== id));
         } else {
             setSeleccionados([...seleccionados, id]);
         }
-        const inicialesSeleccionadas = {...letrasSeleccionadas};
-        if(seleccionados.includes(id)){
-            if(inicialesSeleccionadas[inicial]){
-                inicialesSeleccionadas[inicial] = false;
-            } else {
-                inicialesSeleccionadas[inicial] = true;
-            }
-        }
 
-        setLetrasSeleccionadas(inicialesSeleccionadas);
-        // console.log(seleccionados);
+        if(seleccInicial.includes(name)){
+            setSeleccInicial(seleccInicial.filter(sel => sel !== name));
+        } else{
+            setSeleccInicial([...seleccInicial, name]);
+        }
+        
         setContextData({...contextData, alergiasRegistro: seleccionados});
     }
 
@@ -84,7 +77,7 @@ export default function PaginaAlergias() {
             </div>
             <div className="iniciales">
                 {alergiasPorLetra && alergiasPorLetra.sort().map((key,index) => 
-                    <div key={index} className={seleccionados.some((sel) => sel.startsWith(key)) ? "selected iniciales__item" : "iniciales__item"}>
+                    <div key={index} className={seleccInicial.some((sel) => sel.startsWith(key)) ? "selected iniciales__item" : "iniciales__item"}>
                         {key}
                     </div>
                 )}
@@ -93,12 +86,12 @@ export default function PaginaAlergias() {
                 {alergiasPorLetra && alergiasPorLetra.sort().map(key => (
                     <div key={key}>
                         <div className="alergias">
-                            <p className={seleccionados.some((sel) => sel.startsWith(key)) ? "selected iniciales__item" : "iniciales__item"}>{key}</p>
+                            <p className={seleccInicial.some((sel) => sel.startsWith(key)) ? "selected iniciales__item" : "iniciales__item"}>{key}</p>
                             <button onClick={() => handleFlechaClick(key)} className={infoVisible[key] ? "alergias__flecha--invertida" : "alergias__flecha"}> ↓ </button>
                         </div>
                         <div className={infoVisible[key] ? "alergias__botones hidden" : "alergias__botones"} style={{ display: infoVisible[key] ? "none" : "flex" }}>
                            {alergias[key] && alergias[key].map(alergia => (
-                            <div key={alergia._id} onClick={(e) =>handleAlergiaClick(alergia._id, key)} className={seleccionados.includes(alergia._id) ? 'opcion selected' : 'opcion'}>
+                            <div key={alergia._id} onClick={(e) =>handleAlergiaClick(alergia._id, key, alergia.name)} className={seleccionados.includes(alergia._id) ? 'opcion selected' : 'opcion'}>
                                 {alergia.name}
                             </div>
                             ))} 
