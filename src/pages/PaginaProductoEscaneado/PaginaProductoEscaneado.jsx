@@ -9,13 +9,12 @@ export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const {emailContext} = useContext(EmailContext);
   const [datosProducto, setdatosProducto] = useState(null);
+
 useEffect(()=> {
   console.log(codebar);
   getdatosProducto()
   getDatosUsuario()
 },[])
- 
-  console.log(emailContext);
   const getdatosProducto = () => {
     console.log(codebar);
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
