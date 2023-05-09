@@ -7,12 +7,17 @@ import { EmailContext } from '../../shared/context/Email.context';
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const [datosProducto, setdatosProducto] = useState(null);
-useEffect(()=> {
-  console.log(codebar);
-  getdatosProducto()
+
+  const {emailContext} = useContext(EmailContext);
+
+  console.log(emailContext);
+  useEffect(()=> {
+    console.log(codebar);
+    getdatosProducto()
 },[])
-  const {EmailContext} = useContext(EmailContext);
+
   console.log(EmailContext);
+  
   const getdatosProducto = () => {
     console.log(codebar);
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
