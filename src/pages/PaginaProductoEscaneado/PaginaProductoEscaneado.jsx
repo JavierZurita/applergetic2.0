@@ -7,9 +7,9 @@ import { EmailContext } from '../../shared/context/Email.context';
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
   const [datosProducto, setdatosProducto] = useState(null);
-  const {EmailContext} = useContext(EmailContext);
+  const {emailContext} = useContext(EmailContext);
 
-  console.log(EmailContext);
+  console.log(emailContext);
   const getdatosProducto = () => {
     console.log(codebar);
 
