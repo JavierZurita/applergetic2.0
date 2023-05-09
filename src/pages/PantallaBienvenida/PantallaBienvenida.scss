@@ -11,14 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     top: 15%;
     left: 50%;
-    transform: translate(-50%);
     color: black;
     font-weight: bold;
     font-size: larger;
-    z-index: 1;
   }
   
   .imglogo {
@@ -26,10 +23,8 @@
   }
   
   .slide {
-    position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
   }
   
@@ -38,13 +33,11 @@
   }
   
   .sub {
-    position: absolute;
     color: black;
     margin: 3vh auto 1vh auto;
   }
   
   .Sub2 {
-    position: absolute;
     margin: 1vh auto;
     color: black;
   }
@@ -53,11 +46,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     bottom: 15%;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
   }
   
   .dot {
@@ -74,16 +64,18 @@
     width: 15px;
     height: 15px;
   }
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+}
   
- 
   .Next {
     display: flex;
     align-items: center;
     height: 20vw;
     width: 20vw;
-    position: absolute;
-    bottom: 2%;
-    right: 0%;
     border: none;
     background-color: white;
     color: grey;
@@ -92,9 +84,6 @@
   .Skip {
     height: 20vw;
     width: 20vw;
-    position: absolute;
-    bottom: 2%;
-    left: 5%;
     border: none;
     background-color: white;
     color: grey;
