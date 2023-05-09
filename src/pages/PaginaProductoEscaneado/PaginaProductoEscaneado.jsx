@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { CodebarContext } from '../../shared/context/Codebar.context';
 import './PaginaProductoEscaneado.scss'
+import { EmailContext } from '../../shared/context/Email.context';
 
 export default function PaginaProductoEscaneado() {
   const { codebar } = useContext(CodebarContext);
@@ -10,7 +11,10 @@ useEffect(()=> {
   console.log(codebar);
   getdatosProducto()
 },[])
+  const {EmailContext} = useContext(EmailContext);
+  console.log(EmailContext);
   const getdatosProducto = () => {
+    console.log(codebar);
     axios.get(`http://localhost:5000/productos/barcode/${codebar}`)
       .then(response => {
         const producto = response.data;
@@ -18,6 +22,7 @@ useEffect(()=> {
         let mensajeApto = 'Este producto es apto para ti';
 
         for (const alergia of producto.alergias) {
+          //APUNTAR AL USUARIO v
           if (producto.ingredients.includes(alergia)) {
             mensajeApto = 'Este producto no es apto para ti';
             break;
@@ -26,9 +31,8 @@ useEffect(()=> {
 
         setdatosProducto({
           mensajeApto: mensajeApto,
-          imagen: producto.imagen,
-          nombre: producto.nombre,
-          marca: producto.marca,
+          image: producto.imagen,
+          name: producto.nombre,
           ingredientes: producto.ingredientes.join(', '),
         });
       })

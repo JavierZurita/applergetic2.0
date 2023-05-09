@@ -4,13 +4,15 @@ import Quagga from 'quagga';
 import { Navigate } from 'react-router-dom';
 import {CodebarContext} from '../../shared/context/Codebar.context';
 import './PaginaEscaneo.scss';
+import { EmailContext } from '../../shared/context/Email.context';
 
 const PaginaEscaneo = ({ history }) => {
   const {setCodebar} = useContext(CodebarContext);
   const scannerContainer = useRef(null);
   const [redirect, setRedirect] = useState(false);
-
+  const {emailContext} = useContext(EmailContext);
   useEffect(() => {
+      console.log(emailContext);
       Quagga.init({
         inputStream: {
           name: 'Live',
