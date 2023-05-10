@@ -24,9 +24,8 @@ export default function PaginaProductoEscaneado() {
     let cont = 0;
     getdatosProducto();
     getDatosUsuario();
-
-      if(datosProducto.alergias){
-        setDiarioContext([...diarioContext, datosProducto]);
+    setDiarioContext([...diarioContext, datosProducto]);
+    if(datosProducto.alergias){
         for (const alergiaProd of datosProducto.alergias) {
           if(datosUsuario.includes(alergiaProd)){
             console.log("incluye: ",alergiaProd);
@@ -92,7 +91,7 @@ export default function PaginaProductoEscaneado() {
   return (
     <div className="productoEscaneadoDiv">
       <div className="volverDiv">
-        <div onClick={()=> {navigate('/PaginaHome')}}>X</div>
+        <img className="cerrar" src="./img/x.png" alt="X" onClick={()=> {navigate('/PaginaHome')}} />
       </div>
       <div className="TituloResutadoDiv">
         <h4>Aquí tienes el resultado.</h4>

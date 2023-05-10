@@ -33,6 +33,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
             &__flecha{
                 width: 10vw;
                 height: 25px;
@@ -46,6 +47,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
+                margin-bottom: 10px;
             }
             .alergias__botones.hidden{
                 display: none;

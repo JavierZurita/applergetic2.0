@@ -24,31 +24,10 @@ export default function PaginaDiario() {
                     inicialVisible[array.length - 1] = true;
                     setArrayProductos([...array]);
                     setVisible(inicialVisible);
-                })
-            
-            // console.log(array);                
+                })              
         }}
     },[]);
 
-    // useEffect(() => {
-    //     console.log(userData);
-    //     const fetchProducts = () => {
-    //       const array = [];
-    
-    //       if (userData.diario) {
-    //         const promises = userData.diario.map((producto) =>
-    //           axios.get(`http://localhost:5000/productos/${producto}`).then((res) => res.data)
-    //         );
-    
-    //         Promise.all(promises).then((productData) => {
-    //           array.push(...productData);
-    //           setArrayProductos(array);
-    //         });
-    //       }
-    //     };
-    
-    //     fetchProducts();
-    //   }, [userData.diario]);
     const handleEdit = (index) => {
       console.log(index);
       console.log(visible);
@@ -94,11 +73,9 @@ export default function PaginaDiario() {
                         {!visible[index] && <input type="text" className="notas--input" onChange={(e) => handleChange(e.target.value, index)} />}
                     </div>
                     <div className="productos__item--botones">
-                        {/* <img src="" alt="" />
-                        <img src="" alt="" /> */}
-                        <div onClick={() => handleDelete(index)}>borrar</div>
-                        {visible[index] && <div onClick={()=>handleEdit(index)}>edit</div>}
-                        {!visible[index] && <div onClick={()=>handleSave(notas[index], index)}>guardar</div>}
+                        <img className="logo" src="./img/x.png" alt="X" onClick={() => handleDelete(index)} />
+                        {visible[index] && <img className="logo" src="./img/edit.png" alt="edit" onClick={()=>handleEdit(index)} />}
+                        {!visible[index] && <img className="logo" src="./img/save.png" alt="save" onClick={()=>handleSave(notas[index], index)} />}
                     </div>
                 </article>
             )}
