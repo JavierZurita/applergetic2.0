@@ -34,10 +34,10 @@ export default function PaginaProductoEscaneado() {
           }
         }
         if(cont > 0){
-          console.log("Producto no apto");
+          mensajeApto= "Este producto no es apto para ti";
           setImagenVisible(false);
         } else {
-          console.log("Producto apto");
+          mensajeApto ="Este producto es apto para ti";
           setImagenVisible(true);
         }
       }
@@ -114,7 +114,9 @@ export default function PaginaProductoEscaneado() {
       <div className="ingredientesProductoDiv">
         {datosProducto && datosProducto.ingredientes}
       </div>
+      <div className='botonEscaneoDiv'>
     <button className="boton-volver"><Link to="/PaginaEscaneo">Escanear otro producto</Link></button>
+    </div>
     </div>
   );
 }
