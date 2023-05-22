@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import Quagga from 'quagga';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import {CodebarContext} from '../../shared/context/Codebar.context';
 import './PaginaEscaneo.scss';
 import { EmailContext } from '../../shared/context/Email.context';
 
 const PaginaEscaneo = ({ history }) => {
+  const navigate = useNavigate();
   const {setCodebar} = useContext(CodebarContext);
   const scannerContainer = useRef(null);
   const [redirect, setRedirect] = useState(false);
@@ -47,6 +48,12 @@ const PaginaEscaneo = ({ history }) => {
 
   return (
     <div className='escanerDiv'>
+    <div>
+      <div className="volverDiv">
+        <img className="cerrar" src="./img/x.png" alt="X" onClick={()=> {navigate('/PaginaHome')}} />
+      </div>
+    </div>
+      
         <div className='escanerTituloDiv'><h4><strong>Escaneando...</strong></h4></div>
         <div className='escanerTextoDiv'><p>Tan solo tienes que centrar el <strong>código de barras</strong> del producto en el recuadro</p></div>
         <div className='lectorDiv' ref={scannerContainer} id="barcode-scanner"></div>

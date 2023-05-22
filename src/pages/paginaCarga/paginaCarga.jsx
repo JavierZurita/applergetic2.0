@@ -8,7 +8,7 @@ export default function PaginaCarga() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setRedirect(true);
-    }, 5000);
+    }, 2000);
     return () => clearTimeout(timeout);
   }, []);
 
